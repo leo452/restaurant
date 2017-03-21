@@ -3,7 +3,7 @@ class CreateModels < ActiveRecord::Migration
     create_table :models do |t|
       t.date :fecha
       t.string :nemo
-      t.integer :volumen_total
+      t.integer :volumen_total, :limit => 8
       t.decimal :rotacion_mensual
       t.string :nuemro_ops
 
