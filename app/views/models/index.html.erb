@@ -1,0 +1,92 @@
+
+
+
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand">Sidebar menu</span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to 'Consulta', models_path%></li>
+            <li><%= link_to 'Consulta dinamica', root_path %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+
+                <li class="divider"></li>
+                <li class="dropdown-header">Sub menu</li>
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Action</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+
+
+    <p id="notice"><%= notice %></p>
+    <div class="container" align="center">
+      <h1>Consulta estatica</h1>
+      <p><%= link_to 'Reporte Dinamico', root_path, class: "btn btn-primary btn-lg" %> </p>
+      <%= link_to 'Nuevo', new_model_path %>
+      <table class="table table-striped">
+        <thead >
+        <tr>
+          <th>Fecha</th>
+          <th>Nemo</th>
+          <th>Volumen total</th>
+          <th>Rotacion mensual</th>
+          <th>Nuemro ops</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @models.each do |model| %>
+            <tr>
+              <td><%= model.fecha %></td>
+              <td><%= model.nemo %></td>
+              <td><%= model.volumen_total %></td>
+              <td><%= model.rotacion_mensual %></td>
+              <td><%= model.nuemro_ops %></td>
+              <td><%= link_to 'Ver', model %></td>
+              <td><%= link_to 'Editar', edit_model_path(model) %></td>
+              <td><%= link_to 'Eliminar', model, method: :delete, data: { confirm: 'Seguro desea Eliminar?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <br>
+
+      <%= bar_chart Model.group(:nemo).sum(:volumen_total) %>
+
+
+      <%= line_chart Model.group(:volumen_total).count %>
+      <%= pie_chart Model.group(:nemo).count %>
+
+
+
+    </div>
+
+
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2017-03-20
+  nemo: MyString
+  volumen_total: 1
+  rotacion_mensual: 9.99
+  nuemro_ops: MyString
+
+two:
+  fecha: 2017-03-20
+  nemo: MyString
+  volumen_total: 1
+  rotacion_mensual: 9.99
+  nuemro_ops: MyString

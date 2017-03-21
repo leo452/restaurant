@@ -1,0 +1,32 @@
+
+
+
+<div class="container">
+  <table class="table table-striped">
+    <thead >
+    <tr>
+      <th width="100">Fecha</th>
+      <th width="120">Nemo</th>
+      <th width="120">Volumen total</th>
+      <th width="100">Rotacion Mensual</th>
+      <th width="80">Numero de OPS</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><%= model.fecha %></td>
+      <td><%= model.nemo  %></td>
+      <td><%= model.volumen_total %></td>
+      <td><%= model.rotacion_mensual %></td>
+      <td><%= model.nuemro_ops %></td>
+    </tr>
+
+    </tbody>
+  </table>
+   <%=bar_chart @models.group(:nemo).sum(:rotacion_mensual) %>
+  <%= pie_chart @models.group(:nemo).count %>
+
+
+
+</div>

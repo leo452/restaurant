@@ -1,0 +1,1 @@
+$("#resulados").html("<%= j render @models %>")

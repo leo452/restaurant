@@ -1,0 +1,85 @@
+
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand">Sidebar menu</span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to 'Consulta', models_path%></li>
+            <li><%= link_to 'Consulta dinamica', root_path %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+
+                <li class="divider"></li>
+                <li class="dropdown-header">Sub menu</li>
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Action</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+
+    <div class="container">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Fecha:</strong>
+        <%= @model.fecha %>
+      </p>
+
+      <p>
+        <strong>Nemo:</strong>
+        <%= @model.nemo %>
+      </p>
+
+      <p>
+        <strong>Volumen total:</strong>
+        <%= @model.volumen_total %>
+      </p>
+
+      <p>
+        <strong>Rotacion mensual:</strong>
+        <%= @model.rotacion_mensual %>
+      </p>
+
+      <p>
+        <strong>Nuemro ops:</strong>
+        <%= @model.nuemro_ops %>
+      </p>
+
+      <%= link_to 'Editar', edit_model_path(@model) %> |
+      <%= link_to 'Volver', models_path %>
+
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+</div>
+</div>
